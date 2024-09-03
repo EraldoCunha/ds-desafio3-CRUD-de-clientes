@@ -1,15 +1,19 @@
 package com.ds.desafio3.ds_desafio3_CRUD_de_clientes.dto;
 
 import com.ds.desafio3.ds_desafio3_CRUD_de_clientes.entities.Client;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
 
 import java.time.LocalDate;
 
 public class ClientDTO {
 
     private Long id;
+    @NotBlank(message = "Campo requerido")
     private String name;
     private String cpf;
     private Double income;
+    @PastOrPresent(message = "A data de nascimento deve ser uma data passada ou o dia de hoje.")
     private LocalDate birthDate;
     private Integer children;
 
